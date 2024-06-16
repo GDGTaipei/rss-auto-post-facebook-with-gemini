@@ -5,7 +5,7 @@ Auto Facebook post system with Gemini and fetching RSS source
 ## System Flow
 ![Syetem architecture](./doc/system_architecture.png)
 
-# How to get perminal API KEY of facebook api?
+# How to get permanent API KEY of facebook api?
 
 1. How to create a permanent access key
 For the approach I found you need a Facebook Business account that has access to the page you want a key for.
@@ -43,6 +43,22 @@ API Response
 ```
 {
     "access_token": "{API_KEY}",
+    "id": "{FACEBOOK_PAGE_ID}"
+}
+```
+
+# How to get IG business account ID?
+```
+curl --location 'https://graph.facebook.com/v20.0/{FACEBOOK_PAGE_ID}?fields=instagram_business_account&access_token={API_KEY}' \
+--header 'Cookie: ps_l=1; ps_n=1'
+```
+
+API Responase
+```
+{
+    "instagram_business_account": {
+        "id": "{IG_PAGE_ID}"
+    },
     "id": "{FACEBOOK_PAGE_ID}"
 }
 ```
