@@ -3,7 +3,7 @@ function doGet(e){
 }
 
 const autoPostMessage = async () => {
-  await postMessage(chatId)
+  await postMessage()
 };
 
 
