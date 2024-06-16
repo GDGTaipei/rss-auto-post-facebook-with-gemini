@@ -10,9 +10,9 @@ async function postMessage(chatId) {
 
   for (let blog of blogs){
     try{
-      await fbPostMessage(blog)
+      await MetaPostMessage(blog)
     }catch(err){
-      console.log(blog)
+      console.log(`Error as create post: ${err}`)
     }
   }
 }
