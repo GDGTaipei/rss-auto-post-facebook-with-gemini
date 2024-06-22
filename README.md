@@ -1,7 +1,7 @@
 # rss-auto-post-facebook-with-gemini
 Auto Facebook post system with Gemini and fetching RSS source
 
-> Use Gemini to summarize Google Blog articles and output them in a specified format, and automatically schedule them for publication through the Meta API. Reduce the time cost of operating a fan page and the time gap in cross-language information delivery, while increasing the audience and participation of the fan page, and improving the promotion effect of future activities.
+> Use Gemini to summarize Google Blog articles and output them in a specified format, and automatically schedule them for publication through the Meta API. Reduce the time cost of operating a fan page and the information gap in cross-language information delivery, while increasing the audience and participation of the fan page, and improving the promotion effect of future activities.
 
 ## System Flow
 ![Syetem architecture](./doc/system_architecture.png)
