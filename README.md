@@ -64,6 +64,11 @@ API Responase
 }
 ```
 
+# How do I get stuff for Threads API ?
+You can follow these reference as tutorial:
+* [Come on！使用 Threads API 來自動發文吧](https://cowton0517.medium.com/come-on-%E4%BD%BF%E7%94%A8-threads-api-%E4%BE%86%E8%87%AA%E5%8B%95%E7%99%BC%E6%96%87%E5%90%A7-792797a68437#da53)
+* [Threads API Official Document](https://developers.facebook.com/docs/threads?source=post_page-----792797a68437--------------------------------)
+
 # Add Google Auth to Google App Script
 
 ## Connecting to a Google API
@@ -86,3 +91,5 @@ If you are setting explicit scopes in your manifest file, ensure that the follow
 
 https://www.googleapis.com/auth/script.external_request
 Redirect URI
+
+

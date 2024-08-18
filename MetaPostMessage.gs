@@ -14,18 +14,17 @@ async function MetaPostMessage(blog) {
 
     console.log(`FB posted sucessfully with postId : ${FBpostedId}, messageId: ${FBmessageId}`)
 
+    const token = await getThreadsLongLivedToken()
+    const ThreadContainerId = await createThreadsPostContent(`${postContent}\n\n👉閱讀原文細節：${blog.link}\n\n【貼文內容使用 Gemini 1.5 Pro 自動產生】`,token)
+    const ThreadPostId = await sendThreadsPost(ThreadContainerId,token)
+
+    console.log(`Threads posted sucessfully with postID : ${ThreadPostId}`)
+
     const containerId = await createIgPostContent(`${postContent}\n\n【貼文內容使用 Gemini 1.5 Pro 自動產生】`, blog.imageURL)
     const IGpostId = await sendIGPost(containerId)
     const IGmessageId = await sendIGMessage(IGpostId, blog.link)
 
     console.log(`IG posted sucessfully with postId : ${IGpostId}, messageId: ${IGmessageId}`)
-
-
-    const ThreadsContainerId = await createThreadsPostContent(`${postContent}\n\n【貼文內容使用 Gemini 1.5 Pro 自動產生】`)
-    const ThreadsPostId = await sendThreadsPost(ThreadsContainerId)
-    const ThreadsMessageId = await sendThreadsMessage(ThreadsPostId, blog.link)
-
-    console.log(`Threads posted sucessfully with postId : ${ThreadsPostId}, messageId: ${ThreadsMessageId}`)
 
   }catch(err){
     throw new Error(err)

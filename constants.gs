@@ -11,6 +11,10 @@ const FACEBOOK_TOKEN = "PUT_YOUT_FACEBOOK_TOKEN_HERE";
 const pageId = facebook_page_id
 const instaBusinessId = ig_page_id
 
+const threadsUserId = threads_page_id
+const Thread_Client_SERCET = threads_client_id
+const SHORT_LIVED_TOKEN= threads_shorted_lived_token
+
 /**
 GCP Project setting
 */
