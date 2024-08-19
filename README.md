@@ -48,7 +48,7 @@ API Response
 }
 ```
 
-# How to get IG business account ID?
+## How to get IG business account ID?
 ```
 curl --location 'https://graph.facebook.com/v20.0/{FACEBOOK_PAGE_ID}?fields=instagram_business_account&access_token={API_KEY}' \
 --header 'Cookie: ps_l=1; ps_n=1'
@@ -64,21 +64,44 @@ API Responase
 }
 ```
 
+## How to get Thread account ID?
+```
+curl --location 'https://graph.threads.net/v1.0/me?fields=id%2Cname&access_token={THREADS_SHORT_LIVED_TOKEN}' \
+--header 'Cookie: csrftoken=WFERLOl5Y9nj5avm-VRpfJ'
+```
+
+API Responase
+```
+{
+  "id": "${Thread_profile_Id}",
+  "name": "${Thread_profile_Name}"
+}
+```
+
 # How do I get stuff for Threads API ?
 You can follow these reference as tutorial:
 * [Come on！使用 Threads API 來自動發文吧](https://cowton0517.medium.com/come-on-%E4%BD%BF%E7%94%A8-threads-api-%E4%BE%86%E8%87%AA%E5%8B%95%E7%99%BC%E6%96%87%E5%90%A7-792797a68437#da53)
 * [Threads API Official Document](https://developers.facebook.com/docs/threads?source=post_page-----792797a68437--------------------------------)
 
-# Add Google Auth to Google App Script
+## Token refresh schema for Threads API interaction
+Ref: https://developers.facebook.com/docs/threads/get-started/long-lived-tokens
+Long-lived tokens are valid for 60 days and can be refreshed as long as they are at least 24 hours old but have not expired, and the app user has granted your app the threads_basic permission. Refreshed tokens are valid for 60 days from the date at which they are refreshed. Tokens that have not been refreshed in 60 days will expire and can no longer be refreshed.
 
-## Connecting to a Google API
+1. Store the initial Long Lived Token to Firebase :
+    Switch panel to `threadTokenHelper.gs`, execute function `init`
+2. You can reference [this page](https://developers.google.com/apps-script/guides/triggers) to set the condition to check the token is expired or not by trigger the function `refresh` in automatically 
+
+# Add External Services to Google App Script
+
+## Google Auth 
+### Connecting to a Google API
 If you are trying to connect to a Google API from Apps Script you might not need to use this library at all. Apps Script has a number of easy-to-use, built-in services, as well as a variety of advanced services that wrap existing Google REST APIs.
 
 Even if your API is not covered by either, you can still use Apps Script to obtain the OAuth2 token for you. Simply edit the script's manifest to include the additional scopes that your API requires. When the user authorizes your script they will also be asked to approve those additional scopes. Then use the method ScriptApp.getOAuthToken() in your code to access the OAuth2 access token the script has acquired and pass it in the Authorization header of a UrlFetchApp.fetch() call.
 
 Visit the sample NoLibrary to see an example of how this can be done.
 
-## Setup
+### Setup
 This library is already published as an Apps Script, making it easy to include in your project. To add it to your script, do the following in the Apps Script code editor:
 
 Click on the menu item "Resources > Libraries..."
@@ -92,4 +115,18 @@ If you are setting explicit scopes in your manifest file, ensure that the follow
 https://www.googleapis.com/auth/script.external_request
 Redirect URI
 
+# FirebaseApp
+Full Tutorial:  [Use Firebase with Google Apps Script](https://ai2.metricrat.co.uk/guides/use-firebase-with-google-apps-script)
+### Setup
+This library is already published as an Apps Script, making it easy to include in your project. To add it to your script, do the following in the Apps Script code editor:
 
+Click on the menu item "Resources > Libraries..."
+In the "Find a Library" text box, enter the script ID `1hguuh4Zx72XVC1Zldm_vTtcUUKUA6iBUOoGnJUWLfqDWx5WlOJHqYkrt` and click the "Select" button.
+Choose a version in the dropdown box (usually best to pick the latest version).
+Click the "Save" button.
+Alternatively, you can copy and paste the files in the /dist directory directly into your script project.
+
+If you are setting explicit scopes in your manifest file, ensure that the following scope is included:
+
+https://www.googleapis.com/auth/script.external_request
+Redirect URI

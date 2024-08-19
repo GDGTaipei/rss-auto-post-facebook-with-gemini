@@ -13,7 +13,7 @@ const instaBusinessId = ig_page_id
 
 const threadsUserId = threads_page_id
 const Thread_Client_SERCET = threads_client_id
-const SHORT_LIVED_TOKEN= threads_shorted_lived_token
+const THREADS_SHORT_LIVED_TOKEN= threads_shorted_lived_token
 
 /**
 GCP Project setting
@@ -25,3 +25,7 @@ const MODEL_ID="gemini-1.5-pro-preview-0409"
 
 const SERVICE_ACCOUNT_EMAIL = '<your-sa-mail-here>'; 
 const SERVICE_ACCOUNT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\n<your-sa-private-key-here>\n-----END PRIVATE KEY-----\n';
+
+
+const FIREBASE_URL = '';
+const SECRET = '';

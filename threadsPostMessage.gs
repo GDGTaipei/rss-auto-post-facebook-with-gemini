@@ -1,7 +1,6 @@
-//建立獲取Token
 const getThreadsLongLivedToken = async() =>{
 
-  const url = `https://graph.threads.net/access_token?grant_type=th_exchange_token&client_secret=${Thread_Client_SERCET}&access_token=${SHORT_LIVED_TOKEN}`;
+  const url = `https://graph.threads.net/access_token?grant_type=th_exchange_token&client_secret=${Thread_Client_SERCET}&access_token=${THREADS_SHORT_LIVED_TOKEN}`;
 
 
   const options = {
@@ -11,8 +10,30 @@ const getThreadsLongLivedToken = async() =>{
 
   const response = UrlFetchApp.fetch(url, options);
   const reaponseData = JSON.parse(response.getContentText());
-  const access_token = reaponseData.access_token
-  return access_token
+  return reaponseData
+}
+
+
+const refreshThreadsLongLivedToken = async(LONG_TREM_TOKEN) =>{
+
+  const url = `https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${LONG_TREM_TOKEN}`;
+
+
+  const options = {
+    'method' : 'get',
+    'contentType': 'application/json',
+  };
+
+  const response = UrlFetchApp.fetch(url, options);
+  const reaponseData = JSON.parse(response.getContentText());
+  return reaponseData
+}
+
+
+//建立獲取Token
+const getThreadsLongLivedToken = async() =>{
+  const data = await readThreadsAccessToken()
+  return data[0]
 }
 
 
