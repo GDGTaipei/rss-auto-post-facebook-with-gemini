@@ -4,7 +4,7 @@ const init = async() =>{
   const token = resp.access_token
   const expiredAt = resp.expires_in
   const now = Date.now()
-  await writeAccessToken(token, now + (resp.expiredAt*1000))
+  await writeAccessToken(token, now + (expiredAt*1000))
 }
 
 
